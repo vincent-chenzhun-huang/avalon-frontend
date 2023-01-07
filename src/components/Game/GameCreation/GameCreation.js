@@ -13,10 +13,17 @@ async function createGame(playerNames, token, setMessage) {
             },
             body: JSON.stringify({players: playerNames})
         });
+        if (res.status === 'error') {
+            setMessage(res.message);
+        }
         return res.json();
     } catch (e) {
         console.log(e);
         setMessage(e.message);
+        return {
+            status: 'error',
+            message: e.message
+        };
     }
 }
 

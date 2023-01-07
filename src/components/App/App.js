@@ -24,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/create" element={<GameCreation token={token}/>}/>
           <Route path="/enter" element={<EnterGame token={token}/>}/>
+          <Route path="/game/:gameId" element={<div>Game</div>}/>
         </Routes>
       </Router>
       <Logout setToken={setToken}></Logout>
