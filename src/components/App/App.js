@@ -1,13 +1,10 @@
 import './App.css';
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Dashboard from '../Dashboard/Dashboard';
-import SignUp from '../Authentication/Signup/Signup';
+import { BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import Login from '../Authentication/Login/Login';
 import Logout from '../Authentication/Logout/Logout';
 import GameCreation from '../Game/GameCreation/GameCreation';
-
-
+import EnterGame from '../Game/EnterGame/EnterGame';
 
 function App() {
   const [token, setToken] = React.useState();
@@ -20,11 +17,13 @@ function App() {
   }
   return (
     <div className="wrapper">
-      <h1>Avalon</h1>
       <Router>
+        <h1>Avalon</h1>
+        <li><Link to="/create">Create a New Game</Link></li>
+        <li><Link to="/enter">Enter a Game</Link></li>
         <Routes>
-          <Route path="/" element={<GameCreation token={token}/>}/>
-          <Route path="/signup" element={<SignUp />}/>
+          <Route path="/create" element={<GameCreation token={token}/>}/>
+          <Route path="/enter" element={<EnterGame token={token}/>}/>
         </Routes>
       </Router>
       <Logout setToken={setToken}></Logout>
