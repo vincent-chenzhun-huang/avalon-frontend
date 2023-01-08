@@ -36,7 +36,7 @@ async function checkGame(gameId, token, setMessage) {
 
 export default function EnterGame({ token }) {
     const [gameId, setGameId] = useState('');
-    const [message, setMessage] = useState();
+    const [message, setMessage] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = async e => {

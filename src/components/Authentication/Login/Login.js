@@ -17,7 +17,6 @@ async function loginUser(credentials) {
         return res.json();
     } catch (e) {
         console.log(e);
-        throw e;
     }
 }
 
