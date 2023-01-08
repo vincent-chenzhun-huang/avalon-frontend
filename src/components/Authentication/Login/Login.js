@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './Login.css';
 
@@ -41,6 +42,8 @@ export default function LogIn({ setToken }) {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
     const [message, setMessage] = useState();
+    const navigate = useNavigate();
+
     const handleLogIn = async e => {
         e.preventDefault();
         const res = await loginUser({
@@ -51,6 +54,7 @@ export default function LogIn({ setToken }) {
             const token = res.message;
             setToken(token);
             setMessage();
+            navigate('/enter');
         } else {
             setMessage(res.message);
         }

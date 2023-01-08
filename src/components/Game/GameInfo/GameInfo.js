@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './GameInfo.css';
 import { backendBase, backendPort } from '../../../Configs/env';
+import { useParams } from 'react-router-dom';
 
 async function getGameInfo(gameId, token, setMessage) {
     try {
@@ -31,4 +32,17 @@ async function getGameInfo(gameId, token, setMessage) {
             message: e.message
         };
     }
+}
+
+export default function GameInfo({ token }) {
+    const [gameId, setGameId] = useParams();
+    console(gameId);
+    const [message, setMessage] = useState('');
+    console.log(getGameInfo(gameId, token, setMessage));
+
+    return (
+        <div className="game-info-wrapper">
+            Game info in console
+        </div>
+    )
 }
